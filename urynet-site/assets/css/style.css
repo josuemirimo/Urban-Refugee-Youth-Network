@@ -1,0 +1,263 @@
+:root{
+  --brand:#0d6efd;
+  --accent:#20c997;
+  --text:#212529;
+  --muted:#6c757d;
+  --radius:.95rem;
+  --radius-lg:1.25rem;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.05);
+  --shadow-md: 0 12px 24px rgba(0,0,0,.10);
+  --hero-img: url("../images/hero/hero-urban-youth.jpg"); /* overriden on mobile */
+}
+
+html{ scroll-behavior:smooth; }
+body{ font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.6; color:var(--text); }
+h1,h2,h3,h4,h5{ letter-spacing:-.02em; }
+
+/* Fluid, mobile-first type scale */
+h1{ font-weight:800; font-size: clamp(2rem, 4vw + .8rem, 3.25rem); }
+.lead{ font-size: clamp(1rem, 1.3vw + .7rem, 1.25rem); color:#e9ecef; }
+
+/* Smooth anchor jumps when using #hash links */
+[id]{ scroll-margin-top: 6rem; }
+
+
+
+@media (min-width: 992px){
+  body{
+    background:
+      radial-gradient(1000px 400px at -10% -20%, rgba(13,110,253,.15), transparent 60%),
+      radial-gradient(900px 360px at 110% -10%, rgba(32,201,151,.15), transparent 60%);
+    background-attachment: fixed;
+  }
+}
+
+
+
+/* HERO: image + subtle corner accents, mobile-first */
+.hero{
+  position:relative;
+  min-height: clamp(60vh, 72vh, 85vh);
+  display:flex;
+  align-items:center;
+  color:#fff;
+
+  /* Layer 1 = photo, 2/3 = corner accents, 4 = gentle diagonal wash */
+  background-image:
+    var(--hero-img),
+    radial-gradient(900px 360px at 0% 0%, rgba(13,110,253,.18) 0%, transparent 60%),
+    radial-gradient(700px 280px at 100% 0%, rgba(32,201,151,.18) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(13,110,253,.10), rgba(32,201,151,.10));
+  background-size: cover, auto, auto, auto;
+  background-position: center, left top, right top, center;
+  background-repeat: no-repeat;
+  background-color:#0b1b2a; /* safe fallback while image loads */
+}
+
+/* Keep your overlay */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(120% 120% at 10% 10%, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.7) 100%);
+}
+
+.hero .container{ position:relative; z-index:1; }
+.hero h1, .hero p, .hero .badge{ text-shadow:0 2px 12px rgba(0,0,0,.35); }
+
+/* Frosted badge for modern feel (works over photos) */
+.hero .badge{
+  background-color: rgba(255,255,255,.85) !important;
+  color:#0b1b2a !important;
+  border-color: transparent !important;
+  backdrop-filter: saturate(120%) blur(2px);
+}
+
+/* Mobile: swap to smaller image, slight height tweak */
+@media (max-width: 576px){
+  :root{ --hero-img: url("../images/hero/hero-urban-youth-mobile.jpg"); }
+  .hero{ min-height:70vh; }
+  .hero .badge{ font-size:.8rem; }
+}
+
+
+
+
+/* Buttons: bigger hit area on mobile, accessible focus */
+.btn{ border-radius: .9rem; padding: .7rem 1.05rem; }
+.btn-lg{ border-radius: 1rem; padding: .85rem 1.25rem; }
+
+.btn-primary{ background:var(--brand); border-color:var(--brand); }
+.btn-primary:hover{ filter: brightness(1.05); }
+
+.hero .btn.btn-outline-primary{ color:#fff; border-color:#ffffffa8; }
+.hero .btn.btn-outline-primary:hover{ background:#fff; color:var(--brand); }
+
+.btn:focus-visible{
+  outline:3px solid rgba(13,110,253,.45);
+  outline-offset:2px;
+}
+
+
+
+.card-hover{
+  border: 1px solid #e9ecef;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* Desktop/laptop: elevate on hover */
+@media (hover:hover) and (pointer:fine){
+  .card-hover:hover{
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* Touch: small feedback on tap */
+.card-hover:active{ transform: translateY(-1px); }
+
+
+/* Stats strip */
+.stats-bar{ background:#fff; border-top:1px solid #eee; border-bottom:1px solid #eee; }
+.stat{ display:flex; align-items:center; gap:.75rem; padding:1rem 0; }
+.stat .num{ font-size:1.75rem; font-weight:800; color:var(--brand); }
+a { text-decoration: none; }
+.btn-lg { border-radius: .85rem; }
+
+
+.story-card .card-img-top,
+#storiesTeaser img{
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  object-fit: cover;
+  aspect-ratio: 16 / 10; /* keeps cards tidy on all widths */
+}
+
+
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+@media (min-width: 768px){
+  #programGrid i { font-size: 2rem !important; }
+}
+
+
+
+
+
+/* ——— NAV refinements (safe) ——— */
+.navbar .nav-link{
+  color:#343a40;
+  font-weight:600;
+  position:relative;
+  padding:.5rem .75rem;
+  border-radius:.5rem;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus{ color:var(--brand); }
+/* .navbar .nav-link.active{ color:var(--brand); } */
+.navbar .nav-link.active{ color: var(--brand); background: transparent; }
+
+/* Underline accent on hover/active */
+.navbar .nav-link::after{
+  content:"";
+  position:absolute;
+  left:.6rem; right:.6rem; bottom:.25rem;
+  height:2px; background:var(--brand);
+  transform:scaleX(0); transform-origin:left;
+  transition: transform .2s ease;
+  border-radius:1px;
+}
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after{ transform:scaleX(1); }
+
+/* Make sure hamburger icon always visible even if theme vars change */
+.navbar .navbar-toggler{ border:0; padding:.25rem .5rem; }
+.navbar .navbar-toggler:focus{ box-shadow:0 0 0 .2rem rgba(13,110,253,.25); border-radius:.5rem; }
+.navbar .navbar-toggler-icon{
+  background-image: var(--bs-navbar-toggler-icon-bg, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(33,37,41,.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"));
+}
+
+/* Mobile collapse panel card-feel */
+@media (max-width: 991.98px){
+  .navbar .collapse#nav{
+    background:#fff;
+    margin-top:.5rem;
+    padding:.75rem;
+    border-radius:.75rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  }
+}
+
+/* ——— FOOTER socials as pills (safe) ——— */
+.btn-icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:40px; height:40px; border-radius:999px;
+  background:#f1f3f5; color:#0b1b2a;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+}
+.btn-icon:hover{
+  transform: translateY(-2px);
+  background: var(--brand);
+  color:#fff;
+  box-shadow: 0 12px 24px rgba(0,0,0,.10);
+}
+
+
+/* ===== FOOTER: sleek sizing ===== */
+.footer .contact { font-size: .95rem; }
+.footer .small { font-size: .85rem; }
+
+.btn-icon{
+  width: 32px; height: 32px;   /* was 40x40 */
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+}
+.btn-icon i { font-size: 1rem; } /* smaller glyph */
+
+.footer .input-group .form-control{ padding: .4rem .6rem; }
+.footer .input-group .btn{ padding: .4rem .7rem; border-radius: .7rem; }
+
+.footer .container{ padding-top: 2.25rem !important; padding-bottom: 2rem !important; }
+.footer hr{ margin: 1.25rem 0 !important; }
+
+
+
+
+
+
+
+/* ===== NAV: desktop pill bar ===== */
+@media (min-width: 992px){
+  /* Make outer bar transparent; style the inner container as a pill */
+  .navbar.sticky-top { background: transparent !important; border: 0 !important; }
+  .navbar.sticky-top .container{
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0,0,0,.08);
+    padding-block: .35rem; /* compact */
+    padding-inline: .5rem;
+  }
+
+  /* Tab-like links */
+  .navbar .nav-link{
+    padding: .6rem .9rem;
+    border-radius: .65rem;
+    color: #0b1b2a;
+  }
+  .navbar .nav-link:hover{ background: #f5f7fa; color: var(--brand); }
+  .navbar .nav-link.active{ color: var(--brand); background: #f0f6ff; }
+
+  /* Underline accent for active/hover */
+  .navbar .nav-link::after{
+    bottom: .25rem; height: 2px;
+  }
+
+  /* Compact, pill CTAs */
+  .navbar .btn{ border-radius: 999px; padding: .45rem .9rem; }
+  .navbar .btn.btn-outline-primary{ background: #fff; }
+}

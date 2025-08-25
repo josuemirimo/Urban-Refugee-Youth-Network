@@ -241,7 +241,7 @@
   .nav-toggle {
     display: inline-flex;
     position: absolute;
-    left: 8rem;
+    left: 4rem;
     top: auto;
     transform: translateY(-10%);
     box-shadow: 0 4px 14px rgba(13,110,253,0.06);

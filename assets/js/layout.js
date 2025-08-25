@@ -21,8 +21,8 @@ class SiteNav extends HTMLElement {
       <div class="nav-right">
         <a href="get-involved.html#donate" class="btn primary"><i class="bi bi-heart-fill"></i> Donate</a>
         <a href="get-involved.html#volunteer" class="btn outline"><i class="bi bi-people"></i> Volunteer</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="bi bi-list"></i></button>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="bi bi-list"></i></button>
     </nav>`;
 
     this.initNavigation();

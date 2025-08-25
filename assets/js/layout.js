@@ -1,71 +1,78 @@
-// NAV + FOOTER as Web Components (works offline, no server)
 class SiteNav extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-<nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm sticky-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
-      <span id="brandName">URYNet</span>
-    </a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
-            aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse pt-3 pt-lg-0" id="nav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link px-lg-3" href="about.html" data-page="about.html">
-            <i class="bi bi-info-circle d-none d-lg-inline me-2" aria-hidden="true"></i> About
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link px-lg-3" href="programs.html" data-page="programs.html">
-            <i class="bi bi-grid d-none d-lg-inline me-2" aria-hidden="true"></i> Programs
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link px-lg-3" href="events.html" data-page="events.html">
-            <i class="bi bi-calendar-event d-none d-lg-inline me-2" aria-hidden="true"></i> Events
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link px-lg-3" href="stories.html" data-page="stories.html">
-            <i class="bi bi-newspaper d-none d-lg-inline me-2" aria-hidden="true"></i> News/Stories
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link px-lg-3" href="get-involved.html" data-page="get-involved.html">
-            <i class="bi bi-handshake d-none d-lg-inline me-2" aria-hidden="true"></i> Get Involved
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link px-lg-3" href="resources.html" data-page="resources.html">
-            <i class="bi bi-folder2 d-none d-lg-inline me-2" aria-hidden="true"></i> Resources
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link px-lg-3" href="contact.html" data-page="contact.html">
-            <i class="bi bi-chat-dots d-none d-lg-inline me-2" aria-hidden="true"></i> Contact
-          </a>
-        </li>
-      </ul>
-      <div class="d-flex flex-wrap gap-2 ms-lg-3">
-        <a href="get-involved.html#donate" class="btn btn-primary btn-sm d-inline-flex align-items-center">
-          <i class="bi bi-heart-fill me-2" aria-hidden="true"></i> Donate
-        </a>
-        <a href="get-involved.html#volunteer" class="btn btn-outline-primary btn-sm d-inline-flex align-items-center">
-          <i class="bi bi-people me-2" aria-hidden="true"></i> Volunteer
+    <nav class="site-nav">
+      <div class="nav-left">
+        <a href="index.html">
+          <img src="assets/images/logo_landscape.png" alt="Urban Refugee Youth Network Logo" class="nav-logo">
         </a>
       </div>
-    </div>
-  </div>
-</nav>`;
+      <div class="nav-center">
+        <div class="nav-links">
+          <a href="about.html" data-page="about.html"><i class="bi bi-info-circle"></i> About</a>
+          <a href="programs.html" data-page="programs.html"><i class="bi bi-grid"></i> Programs</a>
+          <a href="events.html" data-page="events.html"><i class="bi bi-calendar-event"></i> Events</a>
+          <a href="stories.html" data-page="stories.html"><i class="bi bi-newspaper"></i> News/Stories</a>
+          <a href="get-involved.html" data-page="get-involved.html"><i class="bi bi-heart"></i> Get Involved</a>
+          <a href="resources.html" data-page="resources.html"><i class="bi bi-folder2"></i> Resources</a>
+          <a href="contact.html" data-page="contact.html"><i class="bi bi-envelope"></i> Contact</a>
+        </div>
+      </div>
+      <div class="nav-right">
+        <a href="get-involved.html#donate" class="btn primary"><i class="bi bi-heart-fill"></i> Donate</a>
+        <a href="get-involved.html#volunteer" class="btn outline"><i class="bi bi-people"></i> Volunteer</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="bi bi-list"></i></button>
+    </nav>`;
+
+    this.initNavigation();
+  }
+
+  initNavigation() {
     const current = location.pathname.split('/').pop() || 'index.html';
-    this.querySelectorAll('a.nav-link').forEach(a => {
-      if (a.dataset.page && current === a.dataset.page) a.classList.add('active');
-      if (!a.dataset.page && (current === '' || current === 'index.html')) a.classList.add('active');
+    this.querySelectorAll('.nav-links a').forEach(a => {
+      if (a.dataset.page && current === a.dataset.page) {
+        a.classList.add('active');
+      }
+      if (!a.dataset.page && (current === '' || current === 'index.html')) {
+        a.classList.add('active');
+      }
+    });
+
+    const toggle = this.querySelector('.nav-toggle');
+    const links = this.querySelector('.nav-links');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = links.classList.toggle('show');
+      toggle.setAttribute('aria-expanded', isOpen);
+      const icon = toggle.querySelector('i');
+      icon.className = isOpen ? 'bi bi-x' : 'bi bi-list';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!this.contains(e.target) && links.classList.contains('show')) {
+        links.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.querySelector('i').className = 'bi bi-list';
+      }
+    });
+
+    this.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          links.classList.remove('show');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.querySelector('i').className = 'bi bi-list';
+        }
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && links.classList.contains('show')) {
+        links.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.querySelector('i').className = 'bi bi-list';
+      }
     });
   }
 }
@@ -73,58 +80,109 @@ class SiteNav extends HTMLElement {
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-<footer class="footer mt-5 bg-body-tertiary border-top">
-  <div class="container py-5">
-    <div class="row g-4 align-items-start text-md-start text-center">
-      <div class="col-md-4">
-        <h5 class="fw-bold mb-3">Urban Refugee Youth Network</h5>
-        <div class="contact small text-secondary">
-          <p class="mb-1"><i class="bi bi-envelope me-2 text-primary"></i> info@urbanrefugeeyouthnetwork.org</p>
-          <p class="mb-1"><i class="bi bi-telephone me-2 text-primary"></i> +256 775 251182</p>
-          <p class="mb-1"><i class="bi bi-whatsapp me-2 text-success"></i> +256 789 025246</p>
-          <p class="mb-0"><i class="bi bi-geo-alt me-2 text-primary"></i> Kampala, Uganda</p>
+    <footer class="site-footer">
+      <div class="footer-columns">
+        <div>
+          <a href="index.html">
+            <img src="assets/images/logo_landscape.png" alt="Urban Refugee Youth Network Logo" class="footer-logo">
+          </a>
+          <p><i class="bi bi-envelope"></i> info@urbanrefugeeyouthnetwork.org</p>
+          <p><i class="bi bi-telephone"></i> +256 775 251182</p>
+          <p><i class="bi bi-whatsapp"></i> +256 789 025246</p>
+          <p><i class="bi bi-geo-alt"></i> Kampala, Uganda</p>
+        </div>
+        <div>
+          <h6><i class="bi bi-share"></i> Follow Us</h6>
+          <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61562093632423" aria-label="Facebook" target="_blank" rel="noopener">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/urbanrefugeeyouthnetwork/" aria-label="Instagram" target="_blank" rel="noopener">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://x.com/refugee_net" aria-label="Twitter/X" target="_blank" rel="noopener">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/urbanrefugeeyouthnetwork" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://www.youtube.com/@urbanrefugeeyouthnetwork-uryn" aria-label="YouTube" target="_blank" rel="noopener">
+              <i class="bi bi-youtube"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h6><i class="bi bi-envelope-open"></i> Stay Connected</h6>
+          <form class="newsletter" id="newsletter-form">
+            <input type="email" placeholder="Enter your email address" required aria-label="Email address" />
+            <button type="submit"><i class="bi bi-send"></i> Subscribe</button>
+          </form>
+          <p class="small">Join our newsletter for updates. No spam, unsubscribe anytime.</p>
         </div>
       </div>
-
-      <div class="col-md-4">
-        <h6 class="text-uppercase text-secondary mb-2">Follow</h6>
-        <div class="d-flex justify-content-md-start justify-content-center flex-wrap gap-2">
-          <a class="btn-icon" href="https://www.facebook.com/profile.php?id=61562093632423" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-          <a class="btn-icon" href="https://www.instagram.com/urbanrefugeeyouthnetwork/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a class="btn-icon" href="https://x.com/refugee_net" aria-label="X"><i class="bi bi-twitter-x"></i></a>
-          <a class="btn-icon" href="https://www.linkedin.com/company/urbanrefugeeyouthnetwork" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-          <a class="btn-icon" href="https://www.youtube.com/@urbanrefugeeyouthnetwork-uryn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Urban Refugee Youth Network. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="resources.html#privacy">Privacy Policy</a>
+          <a href="resources.html#safeguarding">Safeguarding</a>
+          <a href="resources.html#terms">Terms of Service</a>
         </div>
       </div>
+    </footer>`;
 
-      <div class="col-md-4">
-        <h6 class="text-uppercase text-secondary mb-2">Newsletter</h6>
-        <form action="#" class="input-group input-group-lg">
-          <span class="input-group-text d-none d-md-inline" id="newsletter-label"><i class="bi bi-envelope-open"></i></span>
-          <input type="email" class="form-control" placeholder="Your email" aria-label="Your email" aria-describedby="newsletter-label">
-          <button class="btn btn-primary d-inline-flex align-items-center" type="submit">
-            <i class="bi bi-send me-2" aria-hidden="true"></i> Join
-          </button>
-        </form>
-        <p class="small text-secondary mt-2 mb-0">No spam. Unsubscribe anytime.</p>
-      </div>
-    </div>
+    // Initialize footer functionality
+    this.initFooter();
+  }
 
-    <hr class="border-secondary-subtle my-4">
+  initFooter() {
+    // Set current year
+    const yearElement = this.querySelector('#year');
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
 
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small text-secondary">
-      <div>© <span id="year"></span> Urban Refugee Youth Network. All rights reserved.</div>
-      <div class="d-flex gap-3">
-        <a href="resources.html#privacy">Privacy</a>
-        <a href="resources.html#safeguarding">Safeguarding</a>
-        <a href="resources.html#terms">Terms</a>
-      </div>
-    </div>
-  </div>
-</footer>`;
-    const y = this.querySelector('#year'); if (y) y.textContent = new Date().getFullYear();
+    // Newsletter form handling
+    const form = this.querySelector('#newsletter-form');
+    const input = form.querySelector('input[type="email"]');
+    const button = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (input.value && this.isValidEmail(input.value)) {
+        // Animate button
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="bi bi-check-circle"></i> Subscribed!';
+        button.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+
+        // Reset after animation
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.style.background = '';
+          input.value = '';
+        }, 2000);
+
+        // Here you would typically send the data to your backend
+        console.log('Newsletter subscription:', input.value);
+      } else {
+        // Show validation error
+        input.style.borderColor = '#dc3545';
+        input.style.boxShadow = '0 0 0 3px rgba(220, 53, 69, 0.1)';
+
+        setTimeout(() => {
+          input.style.borderColor = '';
+          input.style.boxShadow = '';
+        }, 2000);
+      }
+    });
+  }
+
+  isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   }
 }
 
+// Register custom elements
 customElements.define('site-nav', SiteNav);
 customElements.define('site-footer', SiteFooter);

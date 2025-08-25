@@ -1,13 +1,144 @@
 const Site = {
-  orgName: "Urban Refugee Youth Network",
-  tagline: "Powering self-reliance for urban refugee youth",
-  elevator: "URYNet is a youth-led initiative in Kampala building skills, health, livelihoods and peaceful coexistence so young refugees can thrive in the city.",
+  heroSlides: [
+    {
+      image: "assets/images/hero/hero1.jpg",
+      tagline: "Powering self-reliance for urban refugee youth",
+      elevator: "We are building pathways for education, health, livelihoods, and peacebuilding in Kampala’s refugee communities."
+    },
+    {
+      image: "assets/images/hero/hero2.jpg",
+      tagline: "Youth-led • Community-powered",
+      elevator: "Our initiatives empower young people with skills, confidence, and opportunities to thrive in urban life."
+    },
+    {
+      image: "assets/images/hero/hero3.jpg",
+      tagline: "From skills to sustainability",
+      elevator: "Training programs, entrepreneurship, and socio-economic initiatives that help youth achieve long-term stability."
+    }
+  ],
+
+  about: [
+    {
+      title: "Our Mission",
+      blurb: "To build initiatives that identify, nurtures, promote and improve the well-being of refugee and host community potentials with prospects through advocacy, capacity-building, and service provision by fostering collaborations, empowering, creating and contribute positively to their communities.",
+      image: "assets/images/about/mission.jpg",
+      link: "about.html#mission"
+    },
+    {
+      title: "Our Vision",
+      blurb: "To contribute towards a more supportive and understanding host community towards refugees and their potentials.",
+      image: "assets/images/about/vision.jpg",
+      link: "about.html#vision"
+    },
+    {
+      title: "Our Team",
+      blurb: "Young leaders from diverse backgrounds driving change through collaboration.",
+      image: "assets/images/about/team.jpg",
+      link: "about.html#team"
+    }
+  ],
+
   programs: [
-    { title: "Education", blurb: "Digital literacy, financial literacy, English for adults, tailoring & crafts, and hairdressing that translate directly into income." },
-    { title: "Health", blurb: "Practical health education, SRHR & GBV prevention, basic psychosocial support, and trusted referral links to services." },
-    { title: "Peace & Conflict Resolution", blurb: "Dialogue circles, mediation training, inclusive leadership, and simple guidance on rights & responsibilities." },
-    { title: "Socio-economic Development", blurb: "Targeted short-term support, school retention for vulnerable learners, and links to jobs and buyers." },
-    { title: "Soccer for Social Impact", blurb: "Leagues and life-skills that build trust, confidence, and inclusion across nationalities and genders." },
-    { title: "Refugee Youth Festival", blurb: "A joyful showcase of talent and enterprise that connects creators to buyers, partners, and opportunities." }
+    {
+      title: "Education",
+      blurb: "Digital and financial literacy, English, tailoring, crafts, and hairdressing for income and self-reliance.",
+      image: "assets/images/programs/education.jpg"
+    },
+    {
+      title: "Child Protection & Support",
+      blurb: "Supporting orphans, children with disabilities, and those at risk with safety, care, and opportunities to thrive.",
+      image: "assets/images/programs/children.jpg"
+    },
+    {
+      title: "Peace & Conflict Resolution",
+      blurb: "Dialogue, mediation, and inclusive leadership that foster peaceful and resilient communities.",
+      image: "assets/images/programs/peace.jpg"
+    },
+    {
+      title: "Socio-economic Development",
+      blurb: "Empowering youth through skills, school retention, job links, and short-term support for stability.",
+      image: "assets/images/programs/economic.jpg"
+    },
+    {
+      title: "Soccer for Social Impact",
+      blurb: "Building trust and inclusion across communities through sports, teamwork, and life skills.",
+      image: "assets/images/programs/soccer.jpg"
+    },
+    {
+      title: "Refugee Youth Festival",
+      blurb: "A joyful event showcasing refugee talent, enterprise, and creativity — connecting youth to opportunities.",
+      image: "assets/images/programs/festival.jpg"
+    }
+  ],
+
+  getInvolved: [
+    {
+      title: "Donate",
+      blurb: "Your gift powers training, safety, and opportunity.",
+      image: "assets/images/get-involved/donate.jpg"
+    },
+    {
+      title: "Volunteer",
+      blurb: "Mentor, teach, or support events and outreach.",
+      image: "assets/images/get-involved/volunteer.jpg"
+    },
+    {
+      title: "Partner",
+      blurb: "Let’s co-create training, jobs, and market links.",
+      image: "assets/images/get-involved/partner.jpg"
+    }
+  ],
+
+  partners: [
+    { name: "Partner 1", logo: "assets/images/partners/partner1.jpg", link: "#" },
+    { name: "Partner 2", logo: "assets/images/partners/partner2.jpg", link: "#" }
+  ],
+
+  sponsors: [
+    { name: "Sponsor 1", logo: "assets/images/sponsors/sponsor1.jpg", link: "#" },
+    { name: "Sponsor 2", logo: "assets/images/sponsors/sponsor2.jpg", link: "#" }
+  ],
+
+  donors: [
+    { name: "Donor 1", logo: "assets/images/donors/donor1.jpg", link: "#" },
+    { name: "Donor 2", logo: "assets/images/donors/donor2.jpg", link: "#" }
+  ],
+
+  stats: [
+    { icon: "bi-people", value: 10, suffix: "+", label: "Nationalities" },
+    { icon: "bi-calendar2-week", value: 2022, prefix: "Since ", label: "Founded" },
+    { icon: "bi-geo-alt", value: "Kampala", label: "Urban focus", isStatic: true },
+    { icon: "bi-grid", value: 6, label: "Program Areas" }
+  ],
+
+  events: [
+    {
+      name: "Refugee Youth Festival 2025",
+      startDate: "2025-12-10T10:00:00+03:00",
+      endDate: "2025-12-10T18:00:00+03:00",
+      location: {
+        name: "Kampala Youth Center",
+        street: "Kisenyi, Buwanika, Central Division",
+        city: "Kampala",
+        country: "UG"
+      },
+      image: "assets/images/events/festival2025.jpg",
+      description: "A vibrant cultural festival showcasing refugee youth talent, entrepreneurship, and community resilience."
+    },
+    {
+      name: "Youth Peacebuilding Workshop",
+      startDate: "2025-09-15T09:00:00+03:00",
+      endDate: "2025-09-15T16:00:00+03:00",
+      location: {
+        name: "Peace Hall, Kampala",
+        street: "Central Division",
+        city: "Kampala",
+        country: "UG"
+      },
+      image: "assets/images/events/peace2025.jpg",
+      description: "Interactive dialogue and training on mediation, leadership, and peaceful coexistence."
+    }
+    // ✅ Add more events here as needed
   ]
+
 };

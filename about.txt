@@ -72,122 +72,52 @@
   <!-- NAV (from layout.js) -->
   <site-nav></site-nav>
 
-    <section class="hero">
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
+  <!-- Our Story -->
+  <section class="about-section story-section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-img">
+          <img src="assets/images/about/story.jpg" alt="URYN Founders and Youth" />
         </div>
-
-        <div class="container">
-            <div class="hero-content">
-                <h1>Empowering <span class="highlight">Urban Refugee Youth</span> in Kampala</h1>
-                <p>URYN is committed to transforming lives through education, innovation, and community support.</p>
-
-                <div class="hero-badges">
-                    <div class="badge">Youth-Led</div>
-                    <div class="badge">Community-Focused</div>
-                    <div class="badge">Impact-Driven</div>
-                </div>
-                <br>
-                <a href="#contact" class="hero-btn">Join Us</a>
-            </div>
+        <div class="story-content">
+          <h2>Our Story</h2>
+          <p>
+            The founders of Urban Refugee Youth Network (URYN), together with the executive committee, established this youth-led organization to build initiatives that identify, nurture, promote, and improve the well-being of refugee and host community youth. Through advocacy, capacity-building, and service provision, we foster collaborations and empower youth to contribute positively to their communities. We believe every youth deserves education, career, and financial responsibility that supports their physical and emotional well-being. URYN is committed to creating a supportive and understanding host community, free from discrimination, and guided by respect for all. Our constitution is the foundation for our work and our future.
+          </p>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
+  <!-- Mission & Vision (side-by-side, image left, text right) -->
+  <section class="about-section mv-section">
+    <div class="container">
+      <div class="mv-flex">
+        <div class="mv-item mv-mission">
+          <div class="mv-img">
+            <img src="assets/images/about/mission.jpg" alt="Mission" />
+          </div>
+          <div class="mv-content">
+            <h2>Our Mission</h2>
+            <p>
+              To build initiatives that identify, nurture, promote, and improve the well-being of refugee and host community youth through advocacy, capacity-building, and service provision. We foster collaborations, empower youth, and contribute positively to their communities.
+            </p>
+          </div>
         </div>
-    </section>
-
-
-
-
-    <section class="about-section story-section">
-        <div class="floating-elements">
-            <div class="floating-circle"></div>
-            <div class="floating-circle"></div>
-            <div class="floating-circle"></div>
+        <div class="mv-item mv-vision">
+          <div class="mv-img">
+            <img src="assets/images/about/vision.jpg" alt="Vision" />
+          </div>
+          <div class="mv-content">
+            <h2>Our Vision</h2>
+            <p>
+              To contribute towards a more supportive and understanding host community that recognizes and values the potential of refugees.
+            </p>
+          </div>
         </div>
-
-        <div class="container">
-            <div class="story-card">
-                <div class="story-grid">
-                    <div class="story-img">
-                        <img src="assets/images/about/story.jpg" alt="URYN Founders and Youth building community together" />
-                        <div class="stats-overlay">
-                            <h4>Youth-Led</h4>
-                            <p>100% Impact</p>
-                        </div>
-                    </div>
-                    <div class="story-content">
-                        <h2>Our Story</h2>
-                        <div class="story-text">
-                            <p>
-                                The founders of <span class="highlight-text">Urban Refugee Youth Network (URYN)</span>, together with the executive committee, established this youth-led organization to build initiatives that identify, nurture, promote, and improve the well-being of refugee and host community youth.
-                            </p>
-                            <p>
-                                Through <span class="highlight-text">advocacy, capacity-building, and service provision</span>, we foster collaborations and empower youth to contribute positively to their communities. We believe every youth deserves education, career, and financial responsibility that supports their physical and emotional well-being.
-                            </p>
-                            <p>
-                                URYN is committed to creating a <span class="highlight-text">supportive and understanding host community</span>, free from discrimination, and guided by respect for all. Our constitution is the foundation for our work and our future.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-    <section class="about-section mv-section">
-        <div class="container">
-            <div class="mv-flex">
-                <div class="mv-item mv-mission">
-                    <div class="mv-img">
-                        <img src="assets/images/about/mission.jpg" alt="Mission - Empowering refugee and host community youth" />
-                        <div class="mv-overlay">
-                            <div class="mv-icon">🎯</div>
-                        </div>
-                    </div>
-                    <div class="mv-content">
-                        <h2>Our Mission</h2>
-                        <p>
-                            To build initiatives that identify, nurture, promote, and improve the well-being of <span class="highlight-text">refugee and host community youth</span> through advocacy, capacity-building, and service provision. We foster collaborations, empower youth, and contribute positively to their communities.
-                        </p>
-                        <div class="mv-stats">
-                            <span class="stat-number">100+</span>
-                            <span class="stat-label">Youth Empowered</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="mv-item mv-vision">
-                    <div class="mv-img">
-                        <img src="assets/images/about/vision.jpg" alt="Vision - Building supportive communities for refugees" />
-                        <div class="mv-overlay">
-                            <div class="mv-icon">👁️</div>
-                        </div>
-                    </div>
-                    <div class="mv-content">
-                        <h2>Our Vision</h2>
-                        <p>
-                            To contribute towards a more <span class="highlight-text">supportive and understanding host community</span> that recognizes and values the potential of refugees.
-                        </p>
-                        <div class="mv-stats">
-                            <span class="stat-number">∞</span>
-                            <span class="stat-label">Endless Possibilities</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    
+      </div>
+    </div>
+  </section>
 
   <!-- Core Values Infographic Style -->
   <section class="about-section values-section light">

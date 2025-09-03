@@ -248,7 +248,7 @@
 
 @media (max-width: 768px) {
   .programs-hero {
-    min-height: 72vh;
+    min-height: 73vh;
     padding: 3.5rem 1rem;
   }
   .program-content {
@@ -262,6 +262,10 @@
   }
   .cta-section h2 {
     font-size: 1.7rem;
+  }
+  .programs-section .container {
+    max-width: 100%;      /* stretch full width */
+    padding: 0 2rem;      /* smaller side padding */
   }
 }
 

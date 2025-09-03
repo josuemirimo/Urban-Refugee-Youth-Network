@@ -26,8 +26,8 @@ body {
 .btn { padding: 0.6rem 1.2rem; border-radius: 30px; font-weight: 600; text-decoration: none; display: inline-block; transition: 0.3s; }
 .btn.primary { background: var(--primary); color: #fff; }
 .btn.primary:hover { background: #0b5ed7; }
-.btn.outline { border: 2px solid var(--primary); color: var(--primary); }
-.btn.outline:hover { background: var(--primary); color: #fff; }
+.btn.outline { border: 2px solid #fff; color: #fff; }
+.btn.outline:hover { border: 2px solid var(--primary); background: var(--primary); color: #fff; }
 
 .card { background: #fff; border: 1px solid #eee; border-radius: var(--radius); padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.08); }

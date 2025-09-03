@@ -482,34 +482,69 @@
 
 
 
-  <!-- Contact / Location (remove email/social cards, add email to address, add social links below address) -->
-  <section class="about-section contact-section light">
-    <div class="container">
+
+<section class="about-section contact-section light">
+  <div class="floating-elements">
+    <div class="floating-circle"></div>
+    <div class="floating-circle"></div>
+    <div class="floating-circle"></div>
+  </div>
+
+  <div class="container">
+    <div class="section-header">
       <h2>Contact & Location</h2>
-      <div class="contact-grid">
-        <div>
-          <h3>Office Address</h3>
-          <p>
-            Kisenyi, Buwanika,<br>
-            Central Division, Kampala, Uganda<br>
-            P.O. Box 164570 Kampala GPO 109 Kisenyi<br>
-            <a href="mailto:urbanrefugeeyouthnetwork@gmail.com">urbanrefugeeyouthnetwork@gmail.com</a>
-          </p>
-          <div class="footer-social">
-            <a href="https://facebook.com/urbanrefugeeyouthnetwork" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://twitter.com/urbanrefyouth" target="_blank" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-            <a href="https://instagram.com/urbanrefugeeyouthnetwork" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          </div>
+      <p class="section-subtitle">Reach out to us or find our office on the map</p>
+    </div>
+
+    <!-- Contact Info + Form -->
+    <div class="contact-grid">
+      <!-- Address Card -->
+      <div class="contact-card">
+        <h3>Office Address</h3>
+        <p>
+          Kisenyi, Buwanika,<br>
+          Central Division, Kampala, Uganda<br>
+          P.O. Box 164570 Kampala GPO 109 Kisenyi<br>
+          <a href="mailto:urbanrefugeeyouthnetwork@gmail.com">
+            urbanrefugeeyouthnetwork@gmail.com
+          </a>
+        </p>
+        <div class="footer-social">
+          <a href="https://facebook.com/urbanrefugeeyouthnetwork" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://twitter.com/urbanrefyouth" target="_blank" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+          <a href="https://instagram.com/urbanrefugeeyouthnetwork" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
         </div>
       </div>
-      <div class="map-embed">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.32481287014!2d32.5656!3d0.3136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb6e3c7e7e6b%3A0x6e1b7e7e7e7e7e7e!2sKisenyi%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sug!4v1710000000000!5m2!1sen!2sug"
-          width="100%" height="300" style="border:0; border-radius:1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="URYN Location Map"></iframe>
+
+      <!-- Contact Form Card -->
+      <div class="contact-card">
+        <h3>Send Us a Message</h3>
+        <form class="contact-form" action="#" method="post">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="contact-btn">Send Message</button>
+        </form>
       </div>
     </div>
-  </section>
+
+    <!-- Map Full Width -->
+    <div class="map-card">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.32481287014!2d32.5656!3d0.3136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb6e3c7e7e6b%3A0x6e1b7e7e7e7e7e7e!2sKisenyi%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sug!4v1710000000000!5m2!1sen!2sug"
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="URYN Location Map">
+      </iframe>
+    </div>
+  </div>
+</section>
+
 
   <!-- FOOTER (from layout.js) -->
   <site-footer></site-footer>

@@ -111,34 +111,28 @@ const Site = {
     { icon: "bi-grid", value: 6, label: "Program Areas" }
   ],
 
-  events: [
-    {
-      name: "Refugee Youth Festival 2025",
-      startDate: "2025-12-10T10:00:00+03:00",
-      endDate: "2025-12-10T18:00:00+03:00",
-      location: {
-        name: "Kampala Youth Center",
-        street: "Kisenyi, Buwanika, Central Division",
-        city: "Kampala",
-        country: "UG"
-      },
-      image: "assets/images/events/festival2025.jpg",
-      description: "A vibrant cultural festival showcasing refugee youth talent, entrepreneurship, and community resilience."
-    },
-    {
-      name: "Youth Peacebuilding Workshop",
-      startDate: "2025-09-15T09:00:00+03:00",
-      endDate: "2025-09-15T16:00:00+03:00",
-      location: {
-        name: "Peace Hall, Kampala",
-        street: "Central Division",
-        city: "Kampala",
-        country: "UG"
-      },
-      image: "assets/images/events/peace2025.jpg",
-      description: "Interactive dialogue and training on mediation, leadership, and peaceful coexistence."
-    }
-    // ✅ Add more events here as needed
-  ]
-
 };
+
+const blogPosts = [
+  {
+    title: "Refugee Youth Festival 2025",
+    date: "2025-07-20",
+    excerpt: "A celebration of culture, talent, and empowerment at the Refugee Youth Festival 2025 in Kampala.",
+    image: "assets/images/blog/festival-2025.jpg",
+    link: "blog/refugee-youth-festival-2025.html"
+  },
+  {
+    title: "Health Awareness Campaign",
+    date: "2025-06-10",
+    excerpt: "Community health drives focusing on reproductive health, mental wellness, and GBV prevention.",
+    image: "assets/images/blog/health-awareness.jpg",
+    link: "blog/health-awareness-campaign.html"
+  },
+  {
+    title: "Peacebuilding Workshop",
+    date: "2025-05-15",
+    excerpt: "Dialogue circles and leadership training sessions promoting peace and inclusion among refugee youth.",
+    image: "assets/images/blog/peacebuilding.jpg",
+    link: "blog/peacebuilding-workshop.html"
+  }
+]

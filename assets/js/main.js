@@ -1,5 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const blogGrid = document.querySelector(".blog-grid");
 
+  if (blogGrid && typeof blogPosts !== "undefined") {
+    blogPosts.forEach(post => {
+      const card = document.createElement("article");
+      card.classList.add("blog-card");
+
+      card.innerHTML = `
+        <img src="${post.image}" alt="${post.title}" class="blog-img" />
+        <div class="blog-content">
+          <h3 class="blog-title">${post.title}</h3>
+          <p class="blog-date">${new Date(post.date).toLocaleDateString()}</p>
+          <p class="blog-excerpt">${post.excerpt}</p>
+          <a href="${post.link}" class="blog-btn">Read More</a>
+        </div>
+      `;
+
+      blogGrid.appendChild(card);
+    });
+  }
     /* === HERO SLIDES RENDER === */
   const heroSlides = document.getElementById("heroSlides");
   const heroContent = document.getElementById("heroContent");

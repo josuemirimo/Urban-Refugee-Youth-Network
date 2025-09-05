@@ -12,9 +12,8 @@ class SiteNav extends HTMLElement {
           <a href="about.html" data-page="about.html"><i class="bi bi-info-circle"></i> About</a>
           <a href="programs.html" data-page="programs.html"><i class="bi bi-grid"></i> Programs</a>
           <a href="events.html" data-page="events.html"><i class="bi bi-calendar-event"></i> Events</a>
-          <a href="stories.html" data-page="stories.html"><i class="bi bi-newspaper"></i> News/Stories</a>
+          <a href="blog.html" data-page="blog.html"><i class="bi bi-newspaper"></i> Blog/News</a>
           <a href="get-involved.html" data-page="get-involved.html"><i class="bi bi-heart"></i> Get Involved</a>
-          <a href="resources.html" data-page="resources.html"><i class="bi bi-folder2"></i> Resources</a>
           <a href="contact.html" data-page="contact.html"><i class="bi bi-envelope"></i> Contact</a>
         </div>
       </div>

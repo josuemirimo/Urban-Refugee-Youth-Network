@@ -12,13 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3 class="blog-title">${post.title}</h3>
           <p class="blog-date">${new Date(post.date).toLocaleDateString()}</p>
           <p class="blog-excerpt">${post.excerpt}</p>
-          <a href="${post.link}" class="blog-btn">Read More</a>
+          <a href="/blog/${post.id}" class="blog-btn">Read More</a>
         </div>
       `;
 
       blogGrid.appendChild(card);
     });
   }
+
     /* === HERO SLIDES RENDER === */
   const heroSlides = document.getElementById("heroSlides");
   const heroContent = document.getElementById("heroContent");

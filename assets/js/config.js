@@ -115,24 +115,18 @@ const Site = {
 
 const blogPosts = [
   {
+    id: "festival-2025",
     title: "Refugee Youth Festival 2025",
     date: "2025-07-20",
     excerpt: "A celebration of culture, talent, and empowerment at the Refugee Youth Festival 2025 in Kampala.",
     image: "assets/images/blog/festival-2025.jpg",
-    link: "blog/refugee-youth-festival-2025.html"
-  },
-  {
-    title: "Health Awareness Campaign",
-    date: "2025-06-10",
-    excerpt: "Community health drives focusing on reproductive health, mental wellness, and GBV prevention.",
-    image: "assets/images/blog/health-awareness.jpg",
-    link: "blog/health-awareness-campaign.html"
-  },
-  {
-    title: "Peacebuilding Workshop",
-    date: "2025-05-15",
-    excerpt: "Dialogue circles and leadership training sessions promoting peace and inclusion among refugee youth.",
-    image: "assets/images/blog/peacebuilding.jpg",
-    link: "blog/peacebuilding-workshop.html"
+    seo: {
+      description: "Highlights from the Refugee Youth Festival 2025 organized by Urban Refugee Youth Network in Kampala.",
+      imageAlt: "Refugee Youth Festival 2025 Celebration"
+    },
+    content: `
+      <p>The Refugee Youth Festival 2025 brought together youth, leaders, and partners in Kampala for a celebration of culture and empowerment.</p>
+      <p>From art and music to entrepreneurship showcases, the festival highlighted resilience and innovation among young refugees.</p>
+    `
   }
-]
+];

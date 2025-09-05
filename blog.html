@@ -25,6 +25,7 @@
   <meta property="og:image:alt" content="Urban Refugee Youth Network News and Updates" />
   <meta property="og:url" content="https://urbanrefugeeyouthnetwork.org/blog.html" />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Urban Refugee Youth Network" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -33,6 +34,7 @@
   <meta name="twitter:image" content="https://urbanrefugeeyouthnetwork.org/assets/images/logo_portrait.png" />
   <meta name="twitter:image:alt" content="Urban Refugee Youth Network News and Updates" />
   <meta name="twitter:site" content="@urbanrefyouth" />
+  <meta name="twitter:creator" content="@urbanrefyouth" />
 
   <!-- Favicons -->
   <link rel="icon" href="/assets/images/logo_portrait.png" sizes="32x32" />
@@ -43,10 +45,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" as="style" />
+  <link rel="preload" href="/assets/css/style.css" as="style" />
 
   <!-- Styles -->
   <link href="/assets/css/style.css" rel="stylesheet" />
   <link href="/assets/css/blog.css" rel="stylesheet" />
+
 
   <!-- Schema.org for Blog Listing -->
   <script type="application/ld+json">
@@ -63,10 +67,29 @@
         "@type": "ImageObject",
         "url": "https://urbanrefugeeyouthnetwork.org/assets/images/logo_portrait.png"
       }
-    }
+    },
+    "foundingDate": "2018-01-09",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kisenyi, Buwanika, Central Division",
+      "addressLocality": "Kampala",
+      "addressCountry": "UG"
+    },
+    "email": "urbanrefugeeyouthnetwork@gmail.com",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "email": "urbanrefugeeyouthnetwork@gmail.com",
+      "contactType": "customer support"
+    }],
+    "sameAs": [
+      "https://facebook.com/urbanrefugeeyouthnetwork",
+      "https://x.com/urbanrefyouth",
+      "https://instagram.com/urbanrefugeeyouthnetwork",
+      "https://www.linkedin.com/company/urbanrefugeeyouthnetwork",
+      "https://www.youtube.com/@urbanrefugeeyouthnetwork-uryn"
+    ]
   }
   </script>
-
   <!-- Config + Layout -->
   <script src="/assets/js/config.js"></script>
   <script src="/assets/js/layout.js" defer></script>
@@ -86,6 +109,6 @@
   <site-footer></site-footer>
 
   <!-- Your script -->
-  <script src="assets/js/main.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

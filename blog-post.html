@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Charset & Responsive -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Dynamic SEO will be injected here -->
+  <!-- Dynamic SEO will be injected -->
   <title id="metaTitle">Blog Post - Urban Refugee Youth Network</title>
   <meta id="metaDescription" name="description" content="" />
   <meta id="ogTitle" property="og:title" content="" />
@@ -15,8 +16,23 @@
   <meta id="twitterDescription" name="twitter:description" content="" />
   <meta id="twitterImage" name="twitter:image" content="" />
   <meta id="twitterImageAlt" name="twitter:image:alt" content="" />
-
   <link id="canonicalLink" rel="canonical" href="" />
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow" />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#1976d2" />
+
+  <!-- Open Graph static site_name -->
+  <meta property="og:site_name" content="Urban Refugee Youth Network" />
+  <meta property="og:type" content="article" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@urbanrefyouth" />
+  <meta name="twitter:creator" content="@urbanrefyouth" />
+
   <!-- Favicons -->
   <link rel="icon" href="/assets/images/logo_portrait.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/assets/images/logo_portrait.png" />
@@ -26,12 +42,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" as="style">
+
+  <!-- Styles -->
+  <link rel="preload" href="/assets/css/style.css" as="style" />
   <link href="/assets/css/style.css" rel="stylesheet" />
   <link href="/assets/css/blog.css" rel="stylesheet" />
 
   <!-- Config & Layout -->
   <script src="/assets/js/config.js"></script>
   <script src="/assets/js/layout.js" defer></script>
+
+  <!-- Dynamic BlogPosting Schema -->
+  <script id="postSchema" type="application/ld+json"></script>
 </head>
 <body>
 
@@ -44,54 +66,75 @@
         <h1 id="postTitle" class="post-title"></h1>
         <p id="postDate" class="post-date"></p>
         <div id="postContent" class="post-content"></div>
-        <a href="../blog.html" class="back-btn">← Back to News & Updates</a>
+        <a href="/blog.html" class="back-btn">← Back to News & Updates</a>
       </article>
     </div>
   </section>
 
   <site-footer></site-footer>
 
-  <script src="/assets/js/config.js"></script>
   <script>
-    function getPostId() {
-      const params = new URLSearchParams(window.location.search);
-      if (params.has("post")) {
-        return params.get("post");
-      }
-      // Fallback: parse /blog/{id}
-      const pathParts = window.location.pathname.split("/");
-      return pathParts[pathParts.length - 1] || null;
-    }
+    const params = new URLSearchParams(window.location.search);
+    const postId = params.get("post");
 
-    const postId = getPostId();
     const post = blogPosts.find(p => p.id === postId);
 
     if (post) {
+      // Title & Header
       document.title = `${post.title} | Urban Refugee Youth Network`;
       document.getElementById("postTitle").innerText = post.title;
       document.getElementById("postDate").innerText = new Date(post.date).toDateString();
-      document.getElementById("postImage").src = `../${post.image}`;
+      document.getElementById("postImage").src = `/${post.image}`;
       document.getElementById("postImage").alt = post.seo?.imageAlt || post.title;
       document.getElementById("postContent").innerHTML = post.content;
 
       // SEO meta
+      document.getElementById("metaTitle").innerText = `${post.title} - Urban Refugee Youth Network`;
       document.getElementById("metaDescription").setAttribute("content", post.seo?.description || post.excerpt);
       document.getElementById("ogTitle").setAttribute("content", post.title);
       document.getElementById("ogDescription").setAttribute("content", post.seo?.description || post.excerpt);
-      document.getElementById("ogImage").setAttribute("content", `../${post.image}`);
+      document.getElementById("ogImage").setAttribute("content", `/${post.image}`);
       document.getElementById("ogImageAlt").setAttribute("content", post.seo?.imageAlt || post.title);
       document.getElementById("twitterTitle").setAttribute("content", post.title);
       document.getElementById("twitterDescription").setAttribute("content", post.seo?.description || post.excerpt);
-      document.getElementById("twitterImage").setAttribute("content", `../${post.image}`);
+      document.getElementById("twitterImage").setAttribute("content", `/${post.image}`);
       document.getElementById("twitterImageAlt").setAttribute("content", post.seo?.imageAlt || post.title);
 
       // Canonical
-      const canonicalURL = `https://urbanrefugeeyouthnetwork.org/blog/${post.id}`;
+      const canonicalURL = `https://urbanrefugeeyouthnetwork.org/blog-post.html?post=${post.id}`;
       document.getElementById("canonicalLink").setAttribute("href", canonicalURL);
+
+      // ✅ BlogPosting schema
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "description": post.seo?.description || post.excerpt,
+        "image": `https://urbanrefugeeyouthnetwork.org/${post.image}`,
+        "author": {
+          "@type": "Organization",
+          "name": "Urban Refugee Youth Network"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Urban Refugee Youth Network",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://urbanrefugeeyouthnetwork.org/assets/images/logo_portrait.png"
+          }
+        },
+        "datePublished": post.date,
+        "dateModified": post.lastModified || new Date().toISOString().split("T")[0],
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": canonicalURL
+        }
+      };
+
+      document.getElementById("postSchema").textContent = JSON.stringify(schema);
     } else {
       document.querySelector(".post").innerHTML = "<h2>Post not found</h2>";
     }
   </script>
-
 </body>
 </html>

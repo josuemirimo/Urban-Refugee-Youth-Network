@@ -118,6 +118,7 @@ const blogPosts = [
     id: "festival-2025",
     title: "Refugee Youth Festival 2025",
     date: "2025-07-20",
+    lastModified: "2025-08-15", // optional field
     excerpt: "A celebration of culture, talent, and empowerment at the Refugee Youth Festival 2025 in Kampala.",
     image: "assets/images/blog/festival-2025.jpg",
     seo: {

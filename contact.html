@@ -90,11 +90,218 @@
 </head>
 <body>
 
-    <site-nav></site-nav>
-    <site-footer></site-footer>
+  <site-nav></site-nav>
 
-    <!-- Your script -->
-    <script src="assets/js/main.js"></script>
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="container">
+      <div class="contact-hero-content">
+        <h1>Get in <span class="highlight">Touch</span></h1>
+        <p>Ready to make a difference? Connect with us to learn more about our programs, volunteer opportunities, or partnership possibilities.</p>
 
+        <div class="contact-badges">
+          <div class="contact-badge">Always Responsive</div>
+          <div class="contact-badge">Community-Focused</div>
+          <div class="contact-badge">Impact-Driven</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Contact Section -->
+  <section class="contact-main">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h2>Contact Information</h2>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="bi bi-geo-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Our Office</h3>
+              <p>
+                Kisenyi, Buwanika<br>
+                Central Division, Kampala<br>
+                Uganda<br>
+                P.O. Box 164570 Kampala GPO 109 Kisenyi
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="bi bi-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Email Us</h3>
+              <p>
+                <a href="mailto:urbanrefugeeyouthnetwork@gmail.com">
+                  urbanrefugeeyouthnetwork@gmail.com
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="bi bi-telephone"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Call Us</h3>
+              <p>
+                <a href="tel:+256775251182">+256 775 251 182</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="bi bi-clock"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Office Hours</h3>
+              <p>
+                Monday - Friday: 8:00 AM - 6:00 PM<br>
+                Saturday: 9:00 AM - 4:00 PM<br>
+                Sunday: Closed
+              </p>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://facebook.com/urbanrefugeeyouthnetwork" target="_blank" class="social-link" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://x.com/urbanrefyouth" target="_blank" class="social-link" aria-label="Twitter">
+              <i class="bi bi-twitter"></i>
+            </a>
+            <a href="https://instagram.com/urbanrefugeeyouthnetwork" target="_blank" class="social-link" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/urbanrefugeeyouthnetwork" target="_blank" class="social-link" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://www.youtube.com/@urbanrefugeeyouthnetwork-uryn" target="_blank" class="social-link" aria-label="YouTube">
+              <i class="bi bi-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-container">
+          <h2>Send Us a Message</h2>
+          <form class="contact-form" action="#" method="post">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="volunteer">Volunteering Opportunities</option>
+                <option value="partnership">Partnership Proposal</option>
+                <option value="donation">Donation Information</option>
+                <option value="programs">Program Information</option>
+                <option value="media">Media Inquiry</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" placeholder="Tell us how we can help you or how you'd like to get involved..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              Send Message
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <div class="container">
+      <h2>Find Us on the Map</h2>
+      <p>Visit our office in Kisenyi, Central Division, Kampala to learn more about our work and how you can get involved in empowering refugee youth.</p>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.32481287014!2d32.5656!3d0.3136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb6e3c7e7e6b%3A0x6e1b7e7e7e7e7e7e!2sKisenyi%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sug!4v1710000000000!5m2!1sen!2sug"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="URYN Location Map">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <site-footer></site-footer>
+
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Form submission handler
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Get form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+
+      // Here you would normally send the data to your server
+      // For now, we'll show a simple success message
+      alert('Thank you for your message! We will get back to you soon.');
+
+      // Reset form
+      this.reset();
+    });
+
+    // Add some interactive effects
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animate contact items on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe contact items
+      document.querySelectorAll('.contact-item').forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transition = 'all 0.6s ease';
+        observer.observe(item);
+      });
+    });
+  </script>
 </body>
 </html>
